@@ -1,9 +1,13 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "voting-app.fullname" .}}-dep
 spec:
   replicas: {{ .Values.frontendApp.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.frontendApp.name }}
+      release: {{ .Release.Name }}
   strategy:
     rollingUpdate:
       maxSurge: 1

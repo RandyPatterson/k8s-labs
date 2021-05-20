@@ -3,7 +3,7 @@
 
 ![](content_m2/image1.png)  
 
-# Lab: Module 2 - Kubernetes Application Development on Azure  
+# Lab: Module 5 - Kubernetes Advanced Topics  
 
 >Duration: 90 minutes  
 
@@ -34,6 +34,22 @@ Helm Charts
   - Creating and using PostStart container hooks  
 
   - Using ACI-Connector with Azure Kubernetes Service  
+  ---
+
+
+### Login to your Azure Subscription
+Launch Lab environment for Module 4 (this may take several minutes)
+
+![](content_m1/m1_image1.png)  
+
+On the the **resources** tab then **Use Another Account**
+
+![](content_m1/m1_image2a.png)
+
+Login into your lab Azure Subscription using the credentials provided on the resources tab
+
+![](content_m1/m1_image2.png)
+
 
 All the labs will require an AKS cluster to be up and running. Make sure you are connected to the AKS cluster with the following command executed in a terminal:  
 
@@ -73,11 +89,11 @@ Lets' view the folder structure for **voting-application** that
 contains Helm Charts for both the **front-end** and **back-end** application.
 
 1. Run the following commands:  
-   `cd ~/Labs/Module2`  
-   `tree -d ./voting-app-helm`    
-   **NOTE** if you are running from Powershell ommit the **-d**
+   `cd ~/k8s-labs/Module2`  
+   `code .`    
+   
 
-   ![](content_m2/image2.png)  
+   ![](content_m2/m2_image1.png)  
 
 2. Notice that you have a **templates** folder right underneath the main
    application folder and then another **charts** folder which also has another
@@ -87,10 +103,6 @@ contains Helm Charts for both the **front-end** and **back-end** application.
    Let's explore more closely the YAML files within these folders. This
    will give you better understanding on how various files are placed
    within this hierarchy.
-
-   `tree ./voting-app-helm`  
-   **NOTE:** if you are running from Powershell use the command:   
-   `tree /f ./voting-app-helm`  
 
 ![](content_m2/image3.png)  
 >Helm Charts directory structure for complex applications can grow quite
@@ -163,7 +175,7 @@ contains Helm Charts for both the **front-end** and **back-end** application.
 1. Before you deploy the chart, you can optionally verify it. This
    helps in making sure that everything is defined correctly, and all
    values are exactly what you want them to be.  
-   `cd ~/Labs/Module2`  
+   `cd ~/k8s-labs/Module2`  
 
 2. To verify the helm chart run following command:  
    `helm template ./voting-app-helm`  
