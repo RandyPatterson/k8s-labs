@@ -1,0 +1,10 @@
+frontendApp:
+  name: voting-frontend
+  replicaCount: 1
+  image: microsoft/azure-vote-front
+  tag: v1
+  ports:
+    containerPort: 80
+
+backendAppName:  voting-backend
+

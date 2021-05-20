@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ng-dep
+spec:
+  replicas: 10
+  selector: 
+    matchLabels:
+      target: dev
+  template:
+    metadata:
+      name: ng-pod
+      labels:
+        target: dev
+    spec:
+      containers:
+      - name: nginx
+        image: rbinrais/nginx:v2
+        ports:
+        - containerPort: 80
+          protocol: TCP
+

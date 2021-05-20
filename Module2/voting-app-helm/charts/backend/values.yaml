@@ -1,0 +1,7 @@
+backendApp:
+  name: voting-backend
+  replicaCount: 1
+  image: redis
+  tag: latest
+  ports:
+    containerPort: 6379

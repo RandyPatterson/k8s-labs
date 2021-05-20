@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "voting-app.fullname" .}}-dep
+spec:
+  replicas: {{ .Values.frontendApp.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontendApp.name }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Values.frontendApp.name }}
+        image:  "{{ .Values.frontendApp.image }}:{{ .Values.frontendApp.tag }}"
+        ports:
+        - containerPort: {{ .Values.frontendApp.ports.containerPort }}
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        env:
+        - name: REDIS
+          value: {{ .Values.backendAppName }}

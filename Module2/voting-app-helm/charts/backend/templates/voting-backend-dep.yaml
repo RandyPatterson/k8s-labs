@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "voting-app.fullname" .}}-dep
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.backendApp.name }}
+    spec:
+      containers:
+      - name: {{ .Values.backendApp.name }}
+        image: "{{ .Values.backendApp.image }}:{{ .Values.backendApp.tag }}"
+        ports:
+        - containerPort: {{ .Values.backendApp.ports.containerPort }}
+          name: redis
