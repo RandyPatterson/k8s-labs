@@ -5,13 +5,11 @@
 
 # Lab: Module 5 - Kubernetes Advanced Topics  
 
->Duration: 90 minutes  
+>Duration: 75 minutes  
 
 # Table of Contents
 
 [Exercise: Working with Helm Charts](#exercise-working-with-helm-charts)
-
-[Exercise: Working with Visual Studio Code](#exercise-working-with-visual-studio-code)
 
 
 [Exercise: Working with Init Containers](#exercise-working-with-init-containers)
@@ -231,9 +229,14 @@ contains Helm Charts for both the **front-end** and **back-end** application.
 
 Now we will see how the upgrade process works Helm. 
 
-1. Open the Chart.yaml file and update the appversion to 2.0.</br>
+1. Open the Chart.yaml file and update the appversion to 2.0.
+
+```code ./voting-app-helm/Chart.yaml```
+
    appVersion: "2.0" </br>
    Now let us upgrade the Helm chart. 
+
+Press **CTRL+S** to save changes and **CTRL+Q** to exit editor
 
    `helm upgrade votingapp ./voting-app-helm/`
 
@@ -266,7 +269,7 @@ Now we will see how the upgrade process works Helm.
    `helm uninstall votingapp`  
 
    
-## Exercise: Working with Visual Studio Code  
+## Exercise: Working with Visual Studio Code (Optional) 
 
 In this exercise, you will learn how Visual Studio Code can help when working
 with Kubernetes clusters. Visual Studio Code provides a consistent user
