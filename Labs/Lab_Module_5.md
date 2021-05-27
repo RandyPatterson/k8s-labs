@@ -675,4 +675,4 @@ command that will run as the PostStart container hook executes.
 1. Make sure to delete the Pod before closing this exercise  
    `kubectl delete pod hooks`  
 
-# Congratulations you have completed Lab 2.
+# Congratulations you have completed Lab 5.
