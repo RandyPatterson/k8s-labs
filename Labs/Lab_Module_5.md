@@ -675,41 +675,4 @@ command that will run as the PostStart container hook executes.
 1. Make sure to delete the Pod before closing this exercise  
    `kubectl delete pod hooks`  
 
-
-## Exercise: Windows Server container on an Azure Kubernetes Service (AKS)
- In the Module 2, there is a yaml file called windows.yaml.
-
-1. Open the **windows.yaml** file and examine it.
-
-1. Notice that this **nodeSelector** is looking for an **os type** of **Windows**.  This is tell Kubernetes to only place this pod on a node that is running Windows. Also notice the image name and that it is using an aspnet image pulled from Microsoft's registry.
-
-1. Run the following command, to create a Windows Container using windows.yaml file.  
-   `kubectl apply -f windows.yaml`  
-
-1. It may take a minute for this to start, so run this command until the status is **Running**.  
-   `kubectl get pods`
-
-1. Get the public ip address to access the app by **Running**.  
-   `kubectl get svc`
-
-1.  Open a browser and verify the app is running.
-![](content_m2/windows-app.png)
-
-1. Get the pod information and find out what node it is running on and get the node name.  
-   `kubectl get pods`  
-   `kubectl describe pod PODNAME`
-![](content_m2/windows-pod.png)
-
-1. Examine the details of the node and verify it is running Windows for the OS.  
-   `kubectl describe node NODENAME`
-
-1. You can find OS information in the **Labels** section.  
-![](content_m2/windows-node1.png)
-
-1. You can also find OS information in the **System Info** section.
-![](content_m2/windows-node2.png)
-
-1. Clean up the deployment.  
-   `kubectl delete -f windows.yaml`  
-
 # Congratulations you have completed Lab 2.
